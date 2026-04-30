@@ -95,7 +95,7 @@ const FeaturedTiles = () => {
                                 {/* View Details Button */}
                                 <button
                                     onClick={() => handleViewDetails(tile)}
-                                    className="w-full bg-[#e35336] hover:bg-[#c7432a] text-white font-medium py-3 px-6 rounded-xl transition-colors duration-200"
+                                    className="w-full bg-[#e35336] hover:bg-[#c7432a] cursor-pointer font-medium py-3 px-6 rounded-xl transition-colors duration-200"
                                 >
                                     View Details
                                 </button>
