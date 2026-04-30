@@ -16,7 +16,7 @@ const HeroSlider = () => {
         <div className="absolute inset-0">
             <Swiper
                 modules={[Autoplay, EffectFade]}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 effect="fade"
                 loop={true}
                 className="h-full w-full"
