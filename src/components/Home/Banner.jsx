@@ -3,7 +3,7 @@ import HeroSlider from "./HeroSlider";
 
 const Banner = () => {
     return (
-        <section className="relative h-150 overflow-hidden">
+        <section className="relative h-155 overflow-hidden">
             {/* Background Swiper */}
             <HeroSlider></HeroSlider>
 

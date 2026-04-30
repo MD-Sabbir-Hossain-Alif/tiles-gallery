@@ -1,6 +1,7 @@
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import { SiMaptiler } from "react-icons/si";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
     return (
@@ -18,17 +19,17 @@ const Navbar = () => {
                     </div>
                     <ul className=" flex items-center gap-4 text-lg font-semibold">
                         <li className="hover:text-[#98a869] transition-all">
-                            <Link href="/">Home</Link>
+                            <NavLink href="/">Home</NavLink>
                         </li>
                         <li className="hover:text-[#98a869] transition-all">
-                            <Link href="/all-tiles">All Tiles</Link>
+                            <NavLink href="/all-tiles">All Tiles</NavLink>
                         </li>
                         <li className="hover:text-[#98a869] transition-all">
-                            <Link href="/my-profile"> My Profile</Link>
+                            <NavLink href="/my-profile"> My Profile</NavLink>
                         </li>
                     </ul>
                     <div className="flex-1 flex justify-end  items-center gap-4">
-                        <Button className="bg-[#e35336] rounded-none font-semibold">
+                        <Button className="bg-[#e35336] border rounded-md font-semibold">
                             Login
                         </Button>
                     </div>
