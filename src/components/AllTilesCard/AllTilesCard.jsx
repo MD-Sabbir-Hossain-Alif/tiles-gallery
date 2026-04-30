@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const FeaturedCard = ({ tile }) => {
+const AllTilesCard = ({ tile }) => {
     // console.log(tile)
     const { id, image, title, description, price, currency } = tile;
     const handleViewDetails = (tile) => {
@@ -54,4 +54,4 @@ const FeaturedCard = ({ tile }) => {
     );
 };
 
-export default FeaturedCard;
+export default AllTilesCard;

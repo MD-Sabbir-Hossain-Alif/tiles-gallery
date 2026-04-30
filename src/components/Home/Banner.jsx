@@ -1,5 +1,6 @@
 import { Button } from "@heroui/react";
 import HeroSlider from "./HeroSlider";
+import Link from "next/link";
 
 const Banner = () => {
     return (
@@ -17,9 +18,11 @@ const Banner = () => {
                         Discover Your Perfect Aesthetic
                     </h1>
 
-                    <Button className="bg-[#e35336] rounded-none px-8 mt-5 font-semibold">
-                        Browse New
-                    </Button>
+                    <Link href="/all-tiles">
+                        <Button className="bg-[#e35336] rounded-none px-8 mt-5 font-semibold">
+                            Browse New
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>
