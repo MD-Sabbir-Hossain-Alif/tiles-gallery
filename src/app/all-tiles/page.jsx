@@ -5,7 +5,7 @@ const AllTilesPage = async () => {
     const data = await AllTilesData();
     // console.log(data);
     return (
-        <section className="py-10 bg-linear-to-br from-[#272757] via-[#2f2f6f] to-[#1a1a3d] text-white">
+        <section className="container mx-auto pt-10 pb-26 bg-linear-to-br from-[#272757] via-[#2f2f6f] to-[#1a1a3d] text-white">
             <div className="px-6">
                 {/* Section Header */}
                 <div className="text-center mb-12">

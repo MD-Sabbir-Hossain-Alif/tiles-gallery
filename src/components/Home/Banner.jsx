@@ -19,7 +19,7 @@ const Banner = () => {
                     </h1>
 
                     <Link href="/all-tiles">
-                        <Button className="bg-[#e35336] rounded-none px-8 mt-5 font-semibold">
+                        <Button className="bg-[#e35336] hover:bg-[#c7432a] border border-[#c7432a] px-8 pt-5 pb-5.5 rounded-none mt-5 text-lg font-semibold">
                             Browse New
                         </Button>
                     </Link>
