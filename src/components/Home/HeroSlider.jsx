@@ -5,7 +5,11 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const images = ["/hero1.png", "/hero2.jpg", "/hero3.jpg"];
+const images = [
+    "https://i.ibb.co.com/NdJ5ndVy/hero1.png",
+    "https://i.ibb.co.com/xqf71TCC/hero2.png",
+    "https://i.ibb.co.com/sxVTpZM/hero3.png",
+];
 
 const HeroSlider = () => {
     return (
