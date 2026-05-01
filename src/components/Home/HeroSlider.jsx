@@ -4,11 +4,12 @@ import { Autoplay, EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import Image from "next/image";
 
 const images = [
-    "https://i.ibb.co.com/NdJ5ndVy/hero1.png",
-    "https://i.ibb.co.com/xqf71TCC/hero2.png",
-    "https://i.ibb.co.com/sxVTpZM/hero3.png",
+    "https://i.ibb.co.com/N2SSJ6hj/hero1.jpg",
+    "https://i.ibb.co.com/21KLsPXt/hero2.jpg",
+    "https://i.ibb.co.com/ynNJgkg2/hero3.jpg",
 ];
 
 const HeroSlider = () => {
@@ -23,10 +24,15 @@ const HeroSlider = () => {
             >
                 {images.map((img, i) => (
                     <SwiperSlide key={i}>
-                        <div
-                            className="h-full w-full bg-cover bg-center"
-                            style={{ backgroundImage: `url(${img})` }}
-                        />
+                        <div className="relative h-full w-full">
+                            <Image
+                                src={img}
+                                alt="hero image"
+                                fill
+                                className="object-cover"
+                                priority={i === 0}
+                            />
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>

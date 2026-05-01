@@ -1,13 +1,15 @@
-"use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const FeaturedCard = ({ tile }) => {
     // console.log(tile)
+
     const { id, image, title, description, price, currency } = tile;
-    const handleViewDetails = (tile) => {
-        alert(`Viewing details for: ${tile.title}`);
-        // Replace with navigation later: navigate(`/tile/${tile.id}`)
-    };
+
+    // const handleViewDetails = (tile) => {
+    //     alert(`Viewing details for: ${tile.title}`);
+    //     router.push(`/tile/${tile.id}`);
+    // };
     return (
         <div
             key={id}
@@ -29,7 +31,7 @@ const FeaturedCard = ({ tile }) => {
             <div className="p-5">
                 <h3 className="text-2xl font-semibold mb-1.5">{title}</h3>
 
-                <p className="text-[#EAF4FF] text-sm leading-relaxed mb-4 line-clamp-1">
+                <p className="text-gray-300 text-sm mb-4 line-clamp-2">
                     {description}
                 </p>
 
@@ -43,12 +45,11 @@ const FeaturedCard = ({ tile }) => {
                 </div>
 
                 {/* View Details Button */}
-                <button
-                    onClick={() => handleViewDetails(tile)}
-                    className="w-full bg-[#e35336] hover:bg-[#c7432a] cursor-pointer font-medium py-3 px-6 rounded-xl transition-colors duration-200"
-                >
-                    View Details
-                </button>
+                <Link href={`/tile/${tile.id}`}>
+                    <button className="w-full bg-[#e35336] hover:bg-[#c7432a] cursor-pointer font-medium py-3 px-6 rounded-xl transition-colors duration-200">
+                        View Details
+                    </button>
+                </Link>
             </div>
         </div>
     );
