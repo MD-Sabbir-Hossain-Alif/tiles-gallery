@@ -160,7 +160,7 @@ const Footer = () => {
                         <div className="mt-8">
                             <Link
                                 href=""
-                                className="inline-flex items-center gap-2 bg-[#e35336] hover:bg-bg-[#c7432a] px-6 py-3 rounded-xl transition-colors duration-200"
+                                className="inline-flex items-center gap-2 bg-[#e35336] hover:bg-[#c7432a] px-6 py-3 rounded-xl transition-colors duration-200"
                             >
                                 <FaEnvelope />
                                 Send us a Message

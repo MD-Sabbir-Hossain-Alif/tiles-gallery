@@ -39,9 +39,11 @@ const Navbar = () => {
                 {/* Right side */}
                 <div className="flex-1 flex justify-end items-center gap-4">
                     {/* Desktop Login */}
-                    <Button className="hidden md:block bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all">
-                        Login
-                    </Button>
+                    <Link href="/login">
+                        <Button className="hidden md:block bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all">
+                            Login
+                        </Button>
+                    </Link>
 
                     {/* Hamburger Icon */}
                     <button
@@ -80,9 +82,11 @@ const Navbar = () => {
                         <NavLink href="/my-profile">My Profile</NavLink>
                     </li>
                     <li>
-                        <Button className="w-full bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold">
-                            Login
-                        </Button>
+                        <Link href="/login">
+                            <Button className="w-full bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold">
+                                Login
+                            </Button>
+                        </Link>
                     </li>
                 </ul>
             </div>
