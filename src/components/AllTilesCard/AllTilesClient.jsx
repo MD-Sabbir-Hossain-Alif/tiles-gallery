@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AllTilesCard from "@/components/AllTilesCard/AllTilesCard";
-import { SearchField } from "@heroui/react";
+import { Label, SearchField } from "@heroui/react";
 import { useTransition, animated } from "@react-spring/web";
 
 const AllTilesClient = ({ data }) => {
@@ -33,6 +33,7 @@ const AllTilesClient = ({ data }) => {
                 {/* Search */}
                 <div className="w-full max-w-xl mx-auto px-4 sm:px-0 space-y-4 mb-6">
                     <SearchField fullWidth>
+                        <Label></Label>
                         <SearchField.Group>
                             <SearchField.SearchIcon />
                             <SearchField.Input
