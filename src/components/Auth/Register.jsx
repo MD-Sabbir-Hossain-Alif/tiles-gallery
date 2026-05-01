@@ -1,6 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 import {
     Button,
@@ -12,6 +12,7 @@ import {
     TextField,
 } from "@heroui/react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +20,8 @@ const Register = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData.entries());
-        // console.log("Form submitted with:", userData);
+
+        console.log("Form submitted with:", userData);
 
         const { data, error } = await authClient.signUp.email({
             name: userData.name,
@@ -28,12 +30,15 @@ const Register = () => {
             password: userData.password,
             rememberMe: true,
         });
-        // console.log("sign up response:", { data, error });
+
+        console.log("sign up response:", { data, error });
+
         if (error) {
-            alert(error.message);
+            toast.error(error.message);
+            // alert("error");
         }
         if (data) {
-            alert("Registration Successful");
+            toast.success("Registration Successful");
         }
     };
     return (
@@ -51,7 +56,7 @@ const Register = () => {
                         return null;
                     }}
                 >
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Your Name
                     </Label>
                     <Input
@@ -62,7 +67,7 @@ const Register = () => {
                 </TextField>
 
                 <TextField className="w-full" name="image">
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Photo URL
                     </Label>
                     <Input
@@ -85,7 +90,7 @@ const Register = () => {
                         return null;
                     }}
                 >
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Email address
                     </Label>
                     <Input
@@ -97,7 +102,7 @@ const Register = () => {
                 </TextField>
 
                 <TextField className="w-full" name="password">
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Password
                     </Label>
                     <InputGroup className="rounded-[5px] bg-[#F3F3F3] p-1.75">
@@ -137,6 +142,18 @@ const Register = () => {
                     Register
                 </Button>
             </Form>
+            <div className="px-6 mt-5 space-y-5">
+                <p className="text-center">Or</p>
+                <Button
+                    onClick={() => handleGoogleLogin()}
+                    variant="outline"
+                    size="lg"
+                    className="text-white border border-[#e35336] w-full hover:bg-[#c7432a] rounded-md"
+                >
+                    <FaGoogle />
+                    Login with Google
+                </Button>
+            </div>
         </div>
     );
 };

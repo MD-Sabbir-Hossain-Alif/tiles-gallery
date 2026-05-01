@@ -1,6 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import {
     Button,
     FieldError,
@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +20,8 @@ const Login = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData.entries());
-        // console.log("Form submitted with:", userData);
+
+        console.log("Form submitted with:", userData);
 
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
@@ -27,12 +29,14 @@ const Login = () => {
             rememberMe: true,
             callbackURL: "/",
         });
-        // console.log("Login response:", { data, error });
+
+        console.log("Login response:", { data, error });
+
         if (error) {
-            alert(error.message);
+            toast.error(error.message);
         }
         if (data) {
-            alert("Login Successful");
+            toast.success("Login Successful");
         }
     };
     return (
@@ -55,7 +59,7 @@ const Login = () => {
                         return null;
                     }}
                 >
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Email address
                     </Label>
                     <Input
@@ -67,7 +71,7 @@ const Login = () => {
                 </TextField>
 
                 <TextField className="w-full" name="password">
-                    <Label className="text-[#98a869] mb-3 text-xl font-semibold">
+                    <Label className="text-[#98a869] mb-2 text-xl font-semibold">
                         Password
                     </Label>
                     <InputGroup className="rounded-[5px] bg-[#F3F3F3] p-1.75">
@@ -107,6 +111,20 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+
+            <div className="px-6 mt-5 space-y-5">
+                <p className="text-center">Or</p>
+                <Button
+                    onClick={() => handleGoogleLogin()}
+                    variant="outline"
+                    size="lg"
+                    className="text-white border border-[#e35336] w-full hover:bg-[#c7432a] rounded-md"
+                >
+                    <FaGoogle />
+                    Login with Google
+                </Button>
+            </div>
+
             <p className="text-center mt-7.5 text-[#706F6F] font-semibold">
                 Dont’t Have An Account ?{" "}
                 <Link
