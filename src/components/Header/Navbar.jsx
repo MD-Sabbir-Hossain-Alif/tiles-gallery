@@ -44,9 +44,7 @@ const Navbar = () => {
 
                 <div className="flex-1 flex justify-end items-center gap-4">
                     {isPending ? (
-                        <div className="flex-1 items-center justify-end">
-                            <Spinner size="sm" />
-                        </div>
+                        <Spinner size="sm" />
                     ) : user ? (
                         <div className="flex-1 hidden md:flex justify-end items-center gap-2.5">
                             <h2>Hello, {user.name}</h2>

@@ -1,6 +1,6 @@
 
 import dns from "node:dns";
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
 
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
@@ -13,11 +13,11 @@ let authInstance = null;
 async function getMongoClient() {
     if (client) return client;
 
-    if (!process.env.TILES_GALLARY_DB_URI) {
-        throw new Error("Missing env variable: TILES_GALLARY_DB_URI");
+    if (!process.env.TILES_GALLERY_DB_URI) {
+        throw new Error("Missing env variable: TILES_GALLERY_DB_URI");
     }
 
-    client = new MongoClient(process.env.TILES_GALLARY_DB_URI, {
+    client = new MongoClient(process.env.TILES_GALLERY_DB_URI, {
         maxPoolSize: 10,
         serverSelectionTimeoutMS: 5000,
     });
@@ -42,7 +42,14 @@ export async function getAuth() {
 
         emailAndPassword: {
             enabled: true,
-            // autoSignIn: true,        // uncomment if you want auto login after signup
+            autoSignIn: false,        // uncomment if you want auto login after signup
+        },
+
+        socialProviders: {
+            google: {
+                clientId: process.env.GOOGLE_CLIENT_ID,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            },
         },
     });
 

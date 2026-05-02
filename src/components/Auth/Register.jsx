@@ -13,6 +13,7 @@ import {
 } from "@heroui/react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const Register = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -21,17 +22,16 @@ const Register = () => {
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData.entries());
 
-        console.log("Form submitted with:", userData);
+        // console.log("Form submitted with:", userData);
 
         const { data, error } = await authClient.signUp.email({
             name: userData.name,
             email: userData.email,
             image: userData.image,
             password: userData.password,
-            rememberMe: true,
         });
 
-        console.log("sign up response:", { data, error });
+        // console.log("sign up response:", { data, error });
 
         if (error) {
             toast.error(error.message);
@@ -40,6 +40,13 @@ const Register = () => {
         if (data) {
             toast.success("Registration Successful");
         }
+    };
+
+    // google login
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     };
     return (
         <div className="max-w-150 w-full mx-auto bg-linear-to-br from-[#1a1a3d] via-[#2f2f6f] to-[#272757] p-10 rounded-[5px]">
@@ -154,6 +161,15 @@ const Register = () => {
                     Login with Google
                 </Button>
             </div>
+            <p className="text-center mt-7.5 text-[#706F6F] font-semibold">
+                Have An Account ?{" "}
+                <Link
+                    href="/login"
+                    className="bg-linear-to-r from-[#e35336] to-[#c7432a] bg-clip-text text-transparent hover:underline"
+                >
+                    Login
+                </Link>
+            </p>
         </div>
     );
 };

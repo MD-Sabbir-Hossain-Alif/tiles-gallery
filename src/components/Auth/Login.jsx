@@ -21,7 +21,7 @@ const Login = () => {
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData.entries());
 
-        console.log("Form submitted with:", userData);
+        // console.log("Form submitted with:", userData);
 
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
@@ -30,7 +30,7 @@ const Login = () => {
             callbackURL: "/",
         });
 
-        console.log("Login response:", { data, error });
+        // console.log("Login response:", { data, error });
 
         if (error) {
             toast.error(error.message);
@@ -38,6 +38,13 @@ const Login = () => {
         if (data) {
             toast.success("Login Successful");
         }
+    };
+
+    // google login
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     };
     return (
         <div className="max-w-150 w-full mx-auto bg-linear-to-br from-[#1a1a3d] via-[#2f2f6f] to-[#272757] p-10 rounded-[5px]">
