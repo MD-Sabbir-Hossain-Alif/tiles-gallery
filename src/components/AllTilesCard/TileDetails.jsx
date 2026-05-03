@@ -30,7 +30,7 @@ const TileDetails = ({ foundTile }) => {
                             />
                         </div>
 
-                        {/* Optional: Small thumbnails */}
+                        {/* Small thumbnails */}
                         <div className="flex gap-4 mt-5">
                             <div className="w-15 h-15 rounded-2xl overflow-hidden border-2 border-[#C2B280] ring-2 ring-offset-2 ring-offset-[#1a1a3d] ring-[#C2B280]">
                                 <Image
@@ -89,7 +89,7 @@ const TileDetails = ({ foundTile }) => {
 
                         {/* Specifications */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 lg:p-6">
                                 <p className="text-white/60 text-sm mb-1">
                                     Material
                                 </p>
@@ -97,7 +97,7 @@ const TileDetails = ({ foundTile }) => {
                                     {material}
                                 </p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                            <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-5 lg:p-6">
                                 <p className="text-white/60 text-sm mb-1">
                                     Dimensions
                                 </p>
@@ -107,36 +107,12 @@ const TileDetails = ({ foundTile }) => {
                             </div>
                         </div>
 
-                        {/* Style Tags */}
-                        {/* <div>
-                            <h3 className="text-[#C2B280] text-xl font-semibold mb-4">
-                                Style & Features
-                            </h3>
-                            <div className="flex flex-wrap gap-3">
-                                {[
-                                    "Realistic Wood Grain",
-                                    "Matte Finish",
-                                    "Large Format",
-                                    "Durable",
-                                    "Easy Maintenance",
-                                    "Oak Effect",
-                                ].map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-5 py-2.5 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full text-sm transition-colors cursor-default"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div> */}
-
-                        {/* Action Buttons */}
+                        {/* action buttons */}
                         <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                            <button className="flex-1 bg-[#e35336] hover:bg-[#c7432a] transition-all py-4 rounded-2xl font-semibold text-lg shadow-lg">
+                            <button className="flex-1 bg-[#e35336] hover:bg-[#c7432a] cursor-pointer transition-all py-4 rounded-2xl font-semibold text-lg shadow-lg">
                                 Add to Cart
                             </button>
-                            <button className="flex-1 border border-white/30 hover:border-white/60 py-4 rounded-2xl font-semibold text-lg transition-all">
+                            <button className="flex-1 border border-[#e35336]/60 cursor-pointer hover:border-[#e35336] py-4 rounded-2xl font-semibold text-lg transition-all">
                                 Save for Later
                             </button>
                         </div>

@@ -7,9 +7,9 @@ import "swiper/css/effect-fade";
 import Image from "next/image";
 
 const images = [
-    "https://i.ibb.co.com/N2SSJ6hj/hero1.jpg",
-    "https://i.ibb.co.com/21KLsPXt/hero2.jpg",
-    "https://i.ibb.co.com/ynNJgkg2/hero3.jpg",
+    "https://i.ibb.co.com/LDNZfdtq/hero1.webp",
+    "https://i.ibb.co.com/cSZNpBsG/hero2.webp",
+    "https://i.ibb.co.com/xqJMtz7b/hero3.webp",
 ];
 
 const HeroSlider = () => {
