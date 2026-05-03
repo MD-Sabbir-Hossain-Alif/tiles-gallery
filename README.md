@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tiles Gallery
 
-## Getting Started
+A beautiful, fully responsive tile showcase website built with **Next.js**. Browse, search, and explore premium ceramic and modern tiles with smooth animations and seamless user experience.
 
-First, run the development server:
+## Live Demo
+
+**🔗 [View Live Project](https://tiles-gallery.vercel.app)**
+
+## Purpose
+
+This project is a modern web application designed to showcase various types of tiles (ceramic, modern, geometric, etc.). It provides users with an intuitive gallery experience to browse products, view detailed information, and manage their profile after authentication.
+
+## Key Features
+
+- **Authentication System** — Email/password + Google social login using Better Auth
+- **Protected Routes** — Private pages for authenticated users only (using Proxy)
+- **Featured Tiles & Marquee** — Eye-catching homepage with scrolling announcements
+- **User Profile** — View and update personal information (name & photo)
+- **Dynamic Tile Gallery** — Search, filter, and browse tiles from JSON Server
+- **Tile Details Page** — High-resolution preview with full specifications
+- **Smooth Animations** — Powered by React Spring and SwiperJS
+- **Toast Notifications** — User feedback with React Toastify
+- **Loader States & Error Handling** — Professional UX during data fetching
+- **Fully Responsive Design** — Optimized for mobile, tablet, and desktop
+
+## Tech Stack & NPM Packages Used
+
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS + HeroUI
+- **Authentication**: `better-auth`
+- **Database**: MongoDB
+- **Animations**:
+    - `react-spring`
+    - `swiper`
+    - `react-fast-marquee`
+- **UI Components**: `heroui/react`
+- **Notifications**: `react-toastify`
+- **Icons**: `react-icons`
+
+## Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+/src
+  /app
+  /assets
+  /components
+  /lib
+  /proxy.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Sabbir Hossain
