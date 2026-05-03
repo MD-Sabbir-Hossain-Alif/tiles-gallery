@@ -4,7 +4,7 @@ A beautiful, fully responsive tile showcase website built with **Next.js**. Brow
 
 ## Live Demo
 
-**🔗 [View Live Project](https://tiles-gallery.vercel.app)**
+**🔗 [View Live Project](https://tiles-gallery-five-zeta.vercel.app)**
 
 ## Purpose
 
