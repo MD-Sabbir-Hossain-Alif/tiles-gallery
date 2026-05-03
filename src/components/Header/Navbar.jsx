@@ -24,7 +24,7 @@ const Navbar = () => {
                 <div className="flex-1 flex justify-start">
                     <Link
                         href="/"
-                        className="inline-flex w-fit gap-1 sm:gap-2 cursor-pointer text-[#C2B280] transition-all font-bold text-xl sm:text-2xl md:text-3xl"
+                        className="inline-flex w-fit gap-1 sm:gap-2 cursor-pointer hover:text-[#C2B280] transition-all font-bold text-xl sm:text-2xl md:text-3xl"
                     >
                         <SiMaptiler className="rotate-270" />
                         <SiTile />
