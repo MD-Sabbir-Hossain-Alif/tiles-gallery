@@ -24,7 +24,7 @@ const MyProfile = () => {
     return (
         <section className="flex justify-center items-center min-h-[80vh] md:min-h-[90vh] px-4">
             <div className="max-w-md w-full mx-auto bg-black/10 backdrop-blur-lg border border-[#c2b28083] shadow-md rounded-xl p-5 sm:p-6 md:p-8">
-                <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6">
+                <div className="flex flex-col items-center border border-[#c2b28041] p-2 sm:p-3 md:p-4 rounded-lg gap-4 sm:gap-5 md:gap-6 mb-4 sm:mb-5 md:mb-6">
                     <div className="relative">
                         {user?.image ? (
                             <Image

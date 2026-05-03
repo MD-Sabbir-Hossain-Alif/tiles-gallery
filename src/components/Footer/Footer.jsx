@@ -20,7 +20,7 @@ const Footer = () => {
                     <div>
                         <Link
                             href="/"
-                            className="inline-flex w-fit gap-2 hover:text-[#98a869] cursor-pointer transition-all text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
+                            className="inline-flex w-fit gap-2 text-[#C2B280] cursor-pointer transition-all text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
                         >
                             <SiMaptiler className="rotate-270" />
                             <SiTile />

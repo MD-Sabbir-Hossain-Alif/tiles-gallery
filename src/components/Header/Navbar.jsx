@@ -16,13 +16,15 @@ const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
     const user = session?.user;
 
+    // console.log(user)
+
     return (
         <nav className="sticky top-0 z-40 w-full border-b border-accent bg-[#272757]/50 backdrop-blur-sm shadow-sm">
             <header className="flex h-14 sm:h-16 items-center justify-between px-3 sm:px-4 md:px-6">
                 <div className="flex-1 flex justify-start">
                     <Link
                         href="/"
-                        className="inline-flex w-fit gap-1 sm:gap-2 cursor-pointer hover:text-[#98a869] transition-all font-bold text-xl sm:text-2xl md:text-3xl"
+                        className="inline-flex w-fit gap-1 sm:gap-2 cursor-pointer text-[#C2B280] transition-all font-bold text-xl sm:text-2xl md:text-3xl"
                     >
                         <SiMaptiler className="rotate-270" />
                         <SiTile />
@@ -48,18 +50,18 @@ const Navbar = () => {
                     ) : user ? (
                         <div className="flex-1 hidden md:flex justify-end items-center gap-2">
                             <div className="flex justify-end items-center gap-2">
-                                <h2 className="hidden lg:block text-sm lg:text-base">
-                                    Hello,
+                                <h2 className="hidden lg:block text-sm md:text-base lg:text-lg font-semibold">
+                                    {/* Hello */}
                                     <Link
                                         href="/my-profile"
-                                        className="text-[#C2B280] hover:text-[#98a869] ml-1"
+                                        className="hover:text-[#C2B280] ml-2"
                                     >
                                         {user.name}
                                     </Link>
                                 </h2>
                                 <Link
                                     href="/my-profile"
-                                    className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden"
+                                    className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 border-2 hover:border-[#C2B280] rounded-full overflow-hidden"
                                 >
                                     <Image
                                         src={user?.image || userAvatar}
@@ -121,7 +123,7 @@ const Navbar = () => {
                         <li className="flex items-center gap-2 sm:gap-3">
                             <Link
                                 href="/my-profile"
-                                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden"
+                                className="w-7 h-7 sm:w-8 sm:h-8 border-2 hover:border-[#e35336] rounded-full overflow-hidden"
                             >
                                 <Image
                                     src={user?.image || userAvatar}
@@ -133,7 +135,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 href="/my-profile"
-                                className="font-medium text-sm sm:text-base"
+                                className="hover:text-[#C2B280] ml-1 font-medium text-sm sm:text-base"
                             >
                                 {user.name}
                             </Link>
