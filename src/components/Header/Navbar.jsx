@@ -44,17 +44,23 @@ const Navbar = () => {
 
                 <div className="flex-1 flex justify-end items-center gap-2 sm:gap-3 md:gap-4">
                     {isPending ? (
-                        <Spinner size="sm" />
+                        <Spinner className="hidden md:block" size="sm" />
                     ) : user ? (
                         <div className="flex-1 hidden md:flex justify-end items-center gap-2">
-                            <Link
-                                href="/my-profile"
-                                className="flex justify-end items-center gap-2"
-                            >
+                            <div className="flex justify-end items-center gap-2">
                                 <h2 className="hidden lg:block text-sm lg:text-base">
-                                    Hello, {user.name}
+                                    Hello,
+                                    <Link
+                                        href="/my-profile"
+                                        className="text-[#C2B280] hover:text-[#98a869] ml-1"
+                                    >
+                                        {user.name}
+                                    </Link>
                                 </h2>
-                                <div className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden">
+                                <Link
+                                    href="/my-profile"
+                                    className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden"
+                                >
                                     <Image
                                         src={user?.image || userAvatar}
                                         alt="User avatar"
@@ -62,8 +68,8 @@ const Navbar = () => {
                                         width={40}
                                         className="object-cover w-full h-full"
                                     />
-                                </div>
-                            </Link>
+                                </Link>
+                            </div>
                             <Button
                                 onClick={async () => await authClient.signOut()}
                                 className="hidden md:block text-sm bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all"
@@ -79,18 +85,10 @@ const Navbar = () => {
                                     Login
                                 </Button>
                             </Link>
-
-                            {/* Hamburger Icon */}
-                            <button
-                                className="md:hidden text-xl sm:text-2xl"
-                                onClick={() => setMenuOpen(!menuOpen)}
-                            >
-                                {menuOpen ? <FiX /> : <FiMenu />}
-                            </button>
                         </div>
                     )}
 
-                    {/* Hamburger Icon (kept, just responsive size) */}
+                    {/* hamburger menu  */}
                     <button
                         className="md:hidden text-xl sm:text-2xl"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -117,26 +115,31 @@ const Navbar = () => {
                 }`}
             >
                 <ul className="flex flex-col gap-2 sm:gap-4 text-base sm:text-lg font-semibold">
-                    {user && (
-                        <li>
+                    {isPending ? (
+                        <Spinner className="hidden md:block" size="sm" />
+                    ) : user ? (
+                        <li className="flex items-center gap-2 sm:gap-3">
                             <Link
                                 href="/my-profile"
-                                className="flex items-center gap-2 sm:gap-3"
+                                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden"
                             >
-                                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden">
-                                    <Image
-                                        src={user?.image || userAvatar}
-                                        alt="User avatar"
-                                        width={32}
-                                        height={32}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                                <span className="font-medium text-sm sm:text-base">
-                                    {user.name}
-                                </span>
+                                <Image
+                                    src={user?.image || userAvatar}
+                                    alt="User avatar"
+                                    width={32}
+                                    height={32}
+                                    className="object-cover w-full h-full"
+                                />
+                            </Link>
+                            <Link
+                                href="/my-profile"
+                                className="font-medium text-sm sm:text-base"
+                            >
+                                {user.name}
                             </Link>
                         </li>
+                    ) : (
+                        <></>
                     )}
 
                     <li>

@@ -50,34 +50,34 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="min-h-[90vh] flex items-center justify-center bg-[#1a1a3d] py-10">
-            <div className="max-w-125 w-full mx-auto bg-linear-to-br from-[#1a1a3d] via-[#2f2f6f] to-[#272757] p-10 rounded-[5px]">
-                <h2 className="text-[#C2B280] text-4xl text-center font-semibold mb-8">
+        <div className="min-h-[80vh] sm:min-h-[90vh] flex items-center justify-center bg-[#1a1a3d] py-6 sm:py-8 md:py-10 px-4">
+            <div className="max-w-110 sm:max-w-130 md:max-w-150 w-full mx-auto bg-linear-to-br from-[#1a1a3d] via-[#2f2f6f] to-[#272757] p-5 sm:p-7 md:p-10 rounded-[5px]">
+                <h2 className="text-[#C2B280] text-2xl sm:text-3xl md:text-4xl text-center font-semibold mb-5 sm:mb-6 md:mb-8">
                     Update Profile
                 </h2>
 
                 <Form
                     onSubmit={handleSubmit}
-                    className="flex flex-col gap-6 px-6"
+                    className="flex flex-col gap-4 sm:gap-5 md:gap-6 px-2 sm:px-4 md:px-6"
                 >
                     <TextField className="w-full" name="name">
-                        <Label className="text-[#98a869] mb-2 text-xl font-semibold">
+                        <Label className="text-[#98a869] mb-1 sm:mb-2 text-base sm:text-lg md:text-xl font-semibold">
                             Full Name
                         </Label>
                         <Input
-                            className="rounded-[5px] bg-[#F3F3F3] p-4"
+                            className="rounded-[5px] bg-[#F3F3F3] p-3 sm:p-4 text-sm sm:text-base"
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Enter your full name"
                         />
                     </TextField>
 
                     <TextField className="w-full" name="image">
-                        <Label className="text-[#98a869] mb-2 text-xl font-semibold">
+                        <Label className="text-[#98a869] mb-1 sm:mb-2 text-base sm:text-lg md:text-xl font-semibold">
                             Profile Image URL
                         </Label>
                         <Input
                             type="url"
-                            className="rounded-[5px] bg-[#F3F3F3] p-4"
+                            className="rounded-[5px] bg-[#F3F3F3] p-3 sm:p-4 text-sm sm:text-base"
                             onChange={(e) => setImage(e.target.value)}
                             placeholder="https://example.com/your-image.jpg"
                         />
@@ -86,17 +86,17 @@ const UpdateProfile = () => {
                     <Button
                         type="submit"
                         isDisabled={isSubmitting}
-                        className="w-full bg-[#e35336] hover:bg-[#c7432a] text-white mt-4 p-6 rounded-[5px] text-xl"
+                        className="w-full bg-[#e35336] hover:bg-[#c7432a] text-white mt-3 sm:mt-4 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg rounded-[5px]"
                     >
                         {isSubmitting ? "Updating..." : "Update Information"}
                     </Button>
                 </Form>
 
                 {/* my-profile page button */}
-                <div className="mt-6 text-center">
+                <div className="mt-4 sm:mt-5 md:mt-6 text-center">
                     <Link
                         href="/my-profile"
-                        className="bg-linear-to-r from-[#e35336] to-[#c7432a] bg-clip-text text-transparent hover:underline font-semibold"
+                        className="text-sm sm:text-base bg-linear-to-r from-[#e35336] to-[#c7432a] bg-clip-text text-transparent hover:underline font-semibold"
                     >
                         ← Back to My Profile
                     </Link>

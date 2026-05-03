@@ -2,9 +2,11 @@ import Login from "@/components/Auth/Login";
 
 const LoginPage = () => {
     return (
-        <div className="container mx-auto mt-10 mb-20">
-            <Login></Login>
-        </div>
+        <section className="container mx-auto mt-10 mb-20">
+            <div className="px-4">
+                <Login />
+            </div>
+        </section>
     );
 };
 
