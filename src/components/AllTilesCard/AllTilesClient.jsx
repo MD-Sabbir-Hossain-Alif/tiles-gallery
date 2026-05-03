@@ -4,6 +4,7 @@ import { useState } from "react";
 import AllTilesCard from "@/components/AllTilesCard/AllTilesCard";
 import { Label, SearchField } from "@heroui/react";
 import { useTransition, animated } from "@react-spring/web";
+import ScrollAnimation from "./ScrollAnimation";
 
 const AllTilesClient = ({ data }) => {
     const [search, setSearch] = useState("");
@@ -21,17 +22,16 @@ const AllTilesClient = ({ data }) => {
     });
 
     return (
-        <section className="container mx-auto pt-10 pb-26 bg-linear-to-br from-[#272757] via-[#2f2f6f] to-[#1a1a3d] text-white">
-            <div className="px-6">
-                {/* Header */}
-                <div className="text-center mb-6">
-                    <h2 className="text-6xl font-bold text-[#C2B280] mb-3">
+        <section className="container mx-auto pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20 md:pb-26 bg-linear-to-br from-[#272757] via-[#2f2f6f] to-[#1a1a3d] text-white">
+            <div className="px-4 sm:px-6">
+                <div className="text-center mb-4 sm:mb-6 md:mb-8">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#C2B280] mb-2 sm:mb-3">
                         Tiles Gallery
                     </h2>
                 </div>
 
-                {/* Search */}
-                <div className="w-full max-w-xl mx-auto px-4 sm:px-0 space-y-4 mb-6">
+                {/* search bar*/}
+                <div className="w-full max-w-xl mx-auto px-4 sm:px-0 space-y-4 mb-4 md:mb-6">
                     <SearchField fullWidth>
                         <Label></Label>
                         <SearchField.Group>
@@ -48,11 +48,13 @@ const AllTilesClient = ({ data }) => {
                     </SearchField>
                 </div>
 
-                {/* Animated Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* animated */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
                     {transitions((style, item) => (
                         <animated.div style={style}>
-                            <AllTilesCard tile={item} />
+                            <ScrollAnimation>
+                                <AllTilesCard tile={item} />
+                            </ScrollAnimation>
                         </animated.div>
                     ))}
                 </div>

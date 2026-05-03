@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Banner = () => {
     return (
-        <section className="relative h-155 overflow-hidden">
+        <section className="relative h-135 sm:h-140 md:h-145 lg:h-150 xl:h-155 overflow-hidden">
             {/* Background Swiper */}
             <HeroSlider></HeroSlider>
 
@@ -12,9 +12,9 @@ const Banner = () => {
             <div className="absolute inset-0 z-10 bg-[#272757]/30"></div>
 
             {/* Banner Content */}
-            <div className="relative z-20 flex justify-between items-center h-full px-10 text-white">
-                <div className="w-2/3">
-                    <h1 className="text-8xl font-bold">
+            <div className="relative z-20 flex justify-between items-center h-full px-5 sm:px-10 text-white">
+                <div className="w-7/8 sm:w-3/4 xl:w-3/5">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight">
                         Discover Your Perfect Aesthetic
                     </h1>
 

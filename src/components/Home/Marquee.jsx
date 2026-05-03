@@ -22,12 +22,12 @@ const news = [
 
 const MarqueeSection = () => {
     return (
-        <div className="flex items-center bg-white/10 backdrop-blur-sm  p-6 gap-2 container mx-auto my-20">
+        <div className="flex items-center bg-white/10 backdrop-blur-sm p-3 sm:p-4 md:p-6 gap-2 container mx-auto my-10 md:my-20">
             <Marquee pauseOnHover speed={50}>
                 {news.map((item) => (
                     <span
                         key={item.id}
-                        className="text-2xl mr-6 flex items-center gap-6"
+                        className="text-sm sm:text-base md:text-xl lg:text-2xl mr-4 sm:mr-6 flex items-center gap-3 sm:gap-4 md:gap-6"
                     >
                         <span>{item.title}</span>
                         <span className="text-[#C2B280]">{item.content}</span>

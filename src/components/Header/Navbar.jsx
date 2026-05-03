@@ -18,11 +18,11 @@ const Navbar = () => {
 
     return (
         <nav className="sticky top-0 z-40 w-full border-b border-accent bg-[#272757]/50 backdrop-blur-sm shadow-sm">
-            <header className="flex h-16 items-center justify-between px-6">
+            <header className="flex h-14 sm:h-16 items-center justify-between px-3 sm:px-4 md:px-6">
                 <div className="flex-1 flex justify-start">
                     <Link
                         href="/"
-                        className="inline-flex w-fit gap-2 cursor-pointer hover:text-[#98a869] transition-all font-bold text-3xl"
+                        className="inline-flex w-fit gap-1 sm:gap-2 cursor-pointer hover:text-[#98a869] transition-all font-bold text-xl sm:text-2xl md:text-3xl"
                     >
                         <SiMaptiler className="rotate-270" />
                         <SiTile />
@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex items-center gap-4 text-lg font-semibold">
+                <ul className="hidden md:flex items-center gap-3 lg:gap-4 text-sm md:text-base lg:text-lg font-semibold">
                     <li>
                         <NavLink href="/">Home</NavLink>
                     </li>
@@ -42,52 +42,57 @@ const Navbar = () => {
                     </li>
                 </ul>
 
-                <div className="flex-1 flex justify-end items-center gap-4">
+                <div className="flex-1 flex justify-end items-center gap-2 sm:gap-3 md:gap-4">
                     {isPending ? (
                         <Spinner size="sm" />
                     ) : user ? (
-                        <div className="flex-1 hidden md:flex justify-end items-center gap-2.5">
-                            <h2>Hello, {user.name}</h2>
-                            <div className="w-10 h-10 rounded-full overflow-hidden">
-                                <Image
-                                    src={user?.image || userAvatar}
-                                    alt="User avatar"
-                                    height={40}
-                                    width={40}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
+                        <div className="flex-1 hidden md:flex justify-end items-center gap-2">
+                            <Link
+                                href="/my-profile"
+                                className="flex justify-end items-center gap-2"
+                            >
+                                <h2 className="hidden lg:block text-sm lg:text-base">
+                                    Hello, {user.name}
+                                </h2>
+                                <div className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden">
+                                    <Image
+                                        src={user?.image || userAvatar}
+                                        alt="User avatar"
+                                        height={40}
+                                        width={40}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                            </Link>
                             <Button
                                 onClick={async () => await authClient.signOut()}
-                                className="hidden md:block bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all"
+                                className="hidden md:block text-sm bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all"
                             >
                                 Logout
                             </Button>
                         </div>
                     ) : (
-                        <>
-                            {/* Right side */}
-                            <div className="flex-1 flex justify-end items-center gap-4">
-                                {/* Desktop Login */}
-                                <Link href="/login">
-                                    <Button className="hidden md:block bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all">
-                                        Login
-                                    </Button>
-                                </Link>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                            {/* Desktop Login */}
+                            <Link href="/login">
+                                <Button className="hidden md:block text-sm bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold transition-all">
+                                    Login
+                                </Button>
+                            </Link>
 
-                                {/* Hamburger Icon */}
-                                <button
-                                    className="md:hidden text-2xl"
-                                    onClick={() => setMenuOpen(!menuOpen)}
-                                >
-                                    {menuOpen ? <FiX /> : <FiMenu />}
-                                </button>
-                            </div>
-                        </>
+                            {/* Hamburger Icon */}
+                            <button
+                                className="md:hidden text-xl sm:text-2xl"
+                                onClick={() => setMenuOpen(!menuOpen)}
+                            >
+                                {menuOpen ? <FiX /> : <FiMenu />}
+                            </button>
+                        </div>
                     )}
-                    {/* Hamburger Icon */}
+
+                    {/* Hamburger Icon (kept, just responsive size) */}
                     <button
-                        className="md:hidden text-2xl"
+                        className="md:hidden text-xl sm:text-2xl"
                         onClick={() => setMenuOpen(!menuOpen)}
                     >
                         {menuOpen ? <FiX /> : <FiMenu />}
@@ -105,25 +110,32 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed top-16 right-4 max-w-56 z-40 w-full border border-accent rounded-lg bg-[#272757]/80 backdrop-blur-sm shadow-lg p-4 transform transition-all duration-300 ease-in-out ${
+                className={`md:hidden fixed top-14 sm:top-16 right-0 sm:right-4 max-w-50 z-40 w-full border border-accent rounded-lg bg-[#272757]/80 backdrop-blur-sm shadow-lg p-3 sm:p-4 transform transition-all duration-300 ease-in-out ${
                     menuOpen
                         ? "translate-y-0 opacity-100 scale-100"
                         : "-translate-y-5 opacity-0 scale-95 pointer-events-none"
                 }`}
             >
-                <ul className="flex flex-col gap-4 text-lg font-semibold">
+                <ul className="flex flex-col gap-2 sm:gap-4 text-base sm:text-lg font-semibold">
                     {user && (
-                        <li className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full overflow-hidden">
-                                <Image
-                                    src={user?.image || userAvatar}
-                                    alt="User avatar"
-                                    width={32}
-                                    height={32}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
-                            <span className="font-medium">{user.name}</span>
+                        <li>
+                            <Link
+                                href="/my-profile"
+                                className="flex items-center gap-2 sm:gap-3"
+                            >
+                                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden">
+                                    <Image
+                                        src={user?.image || userAvatar}
+                                        alt="User avatar"
+                                        width={32}
+                                        height={32}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                                <span className="font-medium text-sm sm:text-base">
+                                    {user.name}
+                                </span>
+                            </Link>
                         </li>
                     )}
 
@@ -136,11 +148,12 @@ const Navbar = () => {
                     <li>
                         <NavLink href="/my-profile">My Profile</NavLink>
                     </li>
+
                     {user ? (
                         <li>
                             <Button
                                 onClick={() => authClient.signOut()}
-                                className="w-full bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold"
+                                className="w-full text-sm bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold"
                             >
                                 Logout
                             </Button>
@@ -148,7 +161,7 @@ const Navbar = () => {
                     ) : (
                         <li>
                             <Link href="/login">
-                                <Button className="w-full bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold">
+                                <Button className="w-full text-sm bg-transparent hover:bg-[#e35336] border border-[#e35336] rounded-md font-semibold">
                                     Login
                                 </Button>
                             </Link>
